@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>可配置投资监控与风险雷达</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>投资监控与风险雷达</h1>
+        <p class="sub">把自然语言关注点变成长期监控任务，并解释为什么触发 / 没触发</p>
+      </div>
+      <div class="health" id="health">连接中…</div>
+    </header>
+
+    <main class="layout">
+      <section class="col">
+        <div class="card">
+          <h2>新建监控</h2>
+          <textarea id="query" rows="3" placeholder="例：贵州茅台收盘价跌破 1600，或进入热榜前 3，就提醒我，24 小时只提醒一次"></textarea>
+          <div class="row">
+            <button id="create-btn">用自然语言创建</button>
+            <button id="clear-btn" class="ghost">清空</button>
+          </div>
+          <p class="hint">内置解析器支持：茅台 / 平安银行 / 宁德时代；价格阈值、热榜名次、公告关键词。</p>
+        </div>
+
+        <div class="card">
+          <h2>模拟数据控制</h2>
+          <div class="row">
+            <label>数据模式</label>
+            <select id="mock-mode">
+              <option value="real">真实（扶摇）</option>
+              <option value="mock">演示（mock）</option>
+            </select>
+          </div>
+          <div class="row">
+            <label>行情源故障</label>
+            <input type="checkbox" id="mock-failure" />
+            <label>数据过期</label>
+            <input type="checkbox" id="mock-stale" />
+          </div>
+          <div class="row">
+            <select id="mock-instrument">
+              <option value="600519.SH">贵州茅台</option>
+              <option value="300750.SZ">宁德时代</option>
+              <option value="000001.SZ">平安银行</option>
+            </select>
+            <input type="number" id="mock-price" placeholder="价格" step="0.01" />
+            <button id="mock-set">调整价格</button>
+          </div>
+          <p class="hint">「演示」模式下把价格调到阈值以内，再点任务里的"立即运行"即可演示触发；「真实」模式走扶摇实时行情。</p>
+        </div>
+
+        <div class="card">
+          <h2>任务列表</h2>
+          <div id="task-list" class="task-list">加载中…</div>
+        </div>
+      </section>
+
+      <section class="col">
+        <div id="detail-empty" class="card empty">选中左侧任务查看详情</div>
+        <div id="detail" class="card hidden">
+          <div class="row between">
+            <h2 id="detail-name">任务</h2>
+            <span id="detail-status" class="badge"></span>
+          </div>
+
+          <div class="meta-grid" id="detail-meta"></div>
+
+          <h3>状态流转</h3>
+          <div class="stepper" id="detail-stepper"></div>
+
+          <h3>规则（可编辑）</h3>
+          <textarea id="detail-rule" rows="12" spellcheck="false"></textarea>
+          <div class="row">
+            <button id="save-rule">保存规则（新版本）</button>
+            <button id="run-now">立即运行（强制）</button>
+            <button id="run-normal" class="ghost">常规运行（遵守冷却/去重）</button>
+            <button id="reset-task" class="danger">重置状态</button>
+          </div>
+
+          <h3>最近一次结果 / 解释</h3>
+          <pre id="detail-result" class="explain">尚未运行</pre>
+
+          <h3>版本历史（可回滚）</h3>
+          <div id="detail-versions" class="history">无</div>
+
+          <h3>运行时间线（触发 / 去重 / 冷却 / 降级 / 恢复）</h3>
+          <div id="detail-history" class="history">无</div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "risk-radar",
+  "version": "0.1.0",
+  "description": "可配置投资监控与风险雷达 - 自然语言到可检查规则的长期监控服务",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,122 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+  background: #f4f6f9;
+  color: #1f2430;
+}
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: #111827;
+  color: #fff;
+}
+.topbar h1 { margin: 0; font-size: 20px; }
+.topbar .sub { margin: 4px 0 0; font-size: 13px; color: #cbd5e1; }
+.health { font-size: 12px; padding: 6px 10px; border-radius: 999px; background: #1f2937; }
+.health.ok { background: #065f46; }
+.health.err { background: #7f1d1d; }
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 16px;
+  padding: 20px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.col { display: flex; flex-direction: column; gap: 16px; }
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+}
+.card h2 { margin: 0 0 12px; font-size: 16px; }
+.card h3 { margin: 18px 0 8px; font-size: 14px; color: #374151; }
+.hidden { display: none; }
+.empty { color: #9ca3af; text-align: center; padding: 40px 16px; }
+
+textarea, input, select {
+  width: 100%;
+  font: inherit;
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+}
+textarea { resize: vertical; font-family: ui-monospace, Consolas, monospace; font-size: 13px; }
+.row { display: flex; align-items: center; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.row label { font-size: 13px; }
+.row input[type="number"] { width: 110px; }
+.row select { width: 130px; }
+.row.between { justify-content: space-between; }
+
+button {
+  font: inherit;
+  padding: 8px 14px;
+  border: 1px solid #2563eb;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #fff;
+  cursor: pointer;
+}
+button:hover { background: #1d4ed8; }
+button.ghost { background: #fff; color: #2563eb; }
+button.danger { background: #fff; color: #b91c1c; border-color: #b91c1c; }
+.hint { font-size: 12px; color: #6b7280; margin: 10px 0 0; }
+
+.task-list { display: flex; flex-direction: column; gap: 8px; }
+.task-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+.task-item:hover { background: #f9fafb; }
+.task-item.active { border-color: #2563eb; background: #eff6ff; }
+.task-item .t-name { font-size: 14px; font-weight: 600; }
+.task-item .t-meta { font-size: 12px; color: #6b7280; margin-top: 4px; }
+
+.badge {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #e5e7eb;
+}
+.badge.running { background: #dcfce7; color: #166534; }
+.badge.cooldown { background: #fef3c7; color: #92400e; }
+.badge.failed { background: #fee2e2; color: #991b1b; }
+.badge.paused { background: #e5e7eb; color: #374151; }
+
+.explain {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 13px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  min-height: 60px;
+}
+.history { display: flex; flex-direction: column; gap: 8px; }
+.history-item { border: 1px solid #e5e7eb; border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.history-item .h-time { color: #6b7280; font-size: 12px; }
+.meta-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px 16px; margin: 12px 0 4px; }
+.meta-item { display: flex; flex-direction: column; font-size: 12px; color: #6b7280; }
+.meta-item strong { color: #111827; font-size: 13px; word-break: break-all; }
+.stepper { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+.step { padding: 4px 10px; border-radius: 999px; font-size: 12px; background: #e5e7eb; color: #374151; border: 1px solid transparent; }
+.step.on { border-color: currentColor; font-weight: 600; }
+.step.running.on { background: #dcfce7; color: #166534; }
+.step.cooldown.on { background: #fef3c7; color: #92400e; }
+.step.failed.on { background: #fee2e2; color: #991b1b; }
+.step.paused.on { background: #e5e7eb; color: #374151; }
+.badge.triggered { background: #dcfce7; color: #166534; }
+.badge.recovered { background: #dbeafe; color: #1e40af; }
+.badge.deduped { background: #e5e7eb; color: #374151; }
+.badge.degraded { background: #ffedd5; color: #9a3412; }
+.badge.muted { background: #f3f4f6; color: #6b7280; }
+button.small { padding: 4px 8px; font-size: 12px; }

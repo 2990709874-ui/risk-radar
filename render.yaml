@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: risk-radar
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: FUYAO_API_KEY
+        sync: false
+      - key: SCHEDULE_INTERVAL_MS
+        value: "30000"
